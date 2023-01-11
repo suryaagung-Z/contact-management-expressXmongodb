@@ -1,0 +1,132 @@
+/* MAIN */
+div.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.msg-error {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+div.msg-error .msg {
+  width: max-content;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+div.msg-error .red {
+  background-color: lightcoral;
+}
+
+div.msg-error .green {
+  background-color: lightgreen;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+}
+
+table,
+tr,
+th,
+td {
+  border: 1px solid var(--satu);
+  padding: 5px 10px;
+}
+
+table tr td.td-btn {
+  width: 1px;
+}
+
+table tr td .box-btn {
+  display: flex;
+  gap: 10px;
+}
+
+table tr td button,
+table tr td a {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white);
+  padding: 5px 10px;
+  display: inline-block;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+table tr td a:hover,
+table tr td button:hover {
+  opacity: 0.5;
+}
+
+table tr td #add {
+  background-color: green;
+}
+
+table tr td #update {
+  background-color: blue;
+}
+
+table tr td #delete {
+  background-color: red;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* FORM */
+form:not(#methodoverride) {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border: solid 1px var(--satu05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form:not(#methodoverride) .each {
+  display: flex;
+  flex-direction: column;
+}
+
+form:not(#methodoverride) input {
+  padding: 2px 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+form:not(#methodoverride) button {
+  width: max-content;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--satu);
+  color: var(--white);
+
+  transition: 0.3s;
+}
+
+form:not(#methodoverride) button:hover {
+  background-color: var(--satu05);
+}

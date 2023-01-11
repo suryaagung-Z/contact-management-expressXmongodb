@@ -1,0 +1,38 @@
+<main>
+    <div class="main">
+        <h1>DAFTAR KONTAK</h1>
+        <table>
+            <tr>
+                <td colspan="5">
+                    <a href="/contact/add" id="add">Tambah</a>
+                </td>
+            </tr>
+
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>No.Telp</th>
+                <th>Aksi</th>
+            </tr>
+
+            <% contacts.forEach((contact, index)=> { %>
+            <tr class="data">
+                <td><%= index+1 %></td>
+                <td><%= contact.nama %></td>
+                <td><%= contact.alamat %></td>
+                <td><%= contact.notelp %></td>
+                <td class="td-btn">
+                    <div class="box-btn">
+                        <a href="/contact/update/<%= contact._id %>" id="update">Perbarui</a>
+                        <form method="POST" action="/contact/del?_method=DELETE" id="methodoverride">
+                            <input type="hidden" name="id" value="<%= contact._id %>">
+                            <button id="delete" class="poppins" onclick="return confirm('Hapus?')">Hapus</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+</main>

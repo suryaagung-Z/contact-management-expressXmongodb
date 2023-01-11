@@ -1,0 +1,23 @@
+<main>
+    <form method="POST" action="/contact/update?_method=PUT">
+        <input type="hidden" name="id" value="<%= contact._id %>">
+        <div class="each">
+            <label for="nama">Nama :</label>
+            <input type="text" name="nama" id="nama" class="poppins" value="<%= contact.nama %>" autocomplete="off"
+                required>
+        </div>
+        <div class="each">
+            <label for="alamat">Alamat :</label>
+            <input type="text" name="alamat" id="alamat" class="poppins" value="<%= contact.alamat %>"
+                autocomplete="off" required>
+        </div>
+        <div class="each">
+            <label for="notelp">No.telp :</label>
+            <input type="number" name="notelp" id="notelp" class="poppins" value="<%= contact.notelp %>"
+                autocomplete="off" required>
+        </div>
+        <div class="each">
+            <button type="submit" class="poppins">simpan</button>
+        </div>
+    </form>
+</main>

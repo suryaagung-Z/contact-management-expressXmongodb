@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --satu: #2f3e46;
+  --satu05: rgba(47, 62, 70, 0.5);
+  --satu04: rgba(47, 62, 70, 0.4);
+  --dua: #cad2c5;
+  --white: #fff;
+  --bgred: lightcoral;
+  --bggreen: lightgreen;
+}
+
+body {
+  background-color: var(--dua);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  padding: 20px;
+}
+
+/* NAV */
+nav {
+  background-color: var(--satu);
+  padding: 10px 20px;
+}
+
+nav ul {
+  display: flex;
+  gap: 0 10px;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+/* POPUP */
+.box-popup {
+  width: max-content;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.box-popup section {
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  box-shadow: 0 0 5px var(--satu);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.box-popup section.red {
+  background-color: var(--bgred);
+}
+
+.box-popup section.green {
+  background-color: var(--bggreen);
+}
+
+.box-popup section #del {
+  cursor: pointer;
+}

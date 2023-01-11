@@ -1,0 +1,7 @@
+<div class="box-popup">
+    <% if (locals.messages) { %>
+    <% messages.forEach(val => { %>
+    <section class="<%= val.bg %>"><%= val.msg %><span id="del">✖</span></section>
+    <% }) %>
+    <% } %>
+</div>
