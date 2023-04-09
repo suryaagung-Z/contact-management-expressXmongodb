@@ -11,8 +11,8 @@
 
     <!-- my css -->
     <link rel="stylesheet" href="/css/style.css">
-    <% if (locals.linkcss) { %>
-    <% linkcss.forEach(file => { %>
+    <% if ((typeof filecss !== "undefined") && (filecss.length > 0)) { %>
+    <% filecss.forEach(file => { %>
     <link rel="stylesheet" href="/css/<%= file %>">
     <% }) %>
     <% } %>
@@ -30,10 +30,9 @@
     <%- include(`./main/${main}`) %>
     <%- include('./part/popup') %>
 
-
     <script src="/js/script.js"></script>
-    <% if (locals.linkjs) { %>
-    <% linkjs.forEach(file => { %>
+    <% if ((typeof filejs !== "undefined") && (filejs.length > 0)) { %>
+    <% filejs.forEach(file => { %>
     <script src="/js/<%= file %>"></script>
     <% }) %>
     <% } %>

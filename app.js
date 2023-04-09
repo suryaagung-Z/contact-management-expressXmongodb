@@ -1,3 +1,5 @@
+"use strict";
+
 // VAR
 const path = require("path");
 const express = require("express");
@@ -5,7 +7,7 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const { validationResult, body, param } = require("express-validator");
 
-const Contacts = require("./sys/contact");
+const Contacts = require("./app/connect");
 
 const app = express();
 const port = 3000;
@@ -50,7 +52,7 @@ app.get("/contact", async (req, res) => {
   res.render("template", {
     title: "Kontak",
     main: "contact",
-    linkcss: ["contact.css"],
+    filecss: ["contact.css"],
     contacts: await Contacts.find({}),
     messages,
   });
@@ -63,7 +65,7 @@ app.get("/contact/add", (req, res) => {
   res.render("template", {
     title: "Tambah Kontak",
     main: "add",
-    linkcss: ["contact.css"],
+    filecss: ["contact.css"],
     messages,
   });
 });
@@ -74,7 +76,7 @@ app.post(
   body("nama").custom(async (val) => {
     val = val.trim();
     if (val == "") {
-      throw new Error("Nama ga boleh kosong ajg!");
+      throw new Error("Nama dibutuhkan");
     } else if ((await Contacts.findOne({ nama: val }).exec()) != null) {
       throw new Error("Nama telah digunakan, gunakan nama lain");
     }
@@ -84,14 +86,14 @@ app.post(
   body("alamat").custom((val) => {
     val = val.trim();
     if (val == "") {
-      throw new Error("Alamat ga boleh kosong ajg!");
+      throw new Error("Alamat dibutuhkan");
     }
     return true;
   }),
   body("notelp").custom((val) => {
     val = val.trim();
     if (val == "") {
-      throw new Error("No.telp ga boleh kosong ajg!");
+      throw new Error("No.telp dibutuhkan");
     }
     return true;
   }),
@@ -148,7 +150,7 @@ app.get(
     res.render("template", {
       title: "Perbarui Kontak",
       main: "update",
-      linkcss: ["contact.css"],
+      filecss: ["contact.css"],
       messages,
       contact,
     });
@@ -176,14 +178,14 @@ app.put(
   body("nama").custom((val) => {
     val = val.trim();
     if (val == "") {
-      throw new Error("Nama ga boleh kosong ajg!");
+      throw new Error("Nama dibutuhkan");
     }
     return true;
   }),
   body("alamat").custom((val) => {
     val = val.trim();
     if (val == "") {
-      throw new Error("Alamat ga boleh kosong ajg!");
+      throw new Error("Alamat dibutuhkan");
     }
     return true;
   }),
@@ -191,7 +193,7 @@ app.put(
   body("notelp").custom((val) => {
     val = val.trim();
     if (val == "") {
-      throw new Error("No.telp ga boleh kosong ajg!");
+      throw new Error("No.telp dibutuhkan");
     }
     return true;
   }),
